@@ -1,2 +1,3 @@
-# lib
+# atheneum
+
 Scheme extension library
