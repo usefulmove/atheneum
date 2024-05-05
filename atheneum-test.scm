@@ -37,5 +37,18 @@
 (assert (equal? (enumerate '(3 1 2))
                 '((0 . 3) (1 . 1) (2 . 2))))
 
+(assert (any?
+         (lambda (element) (= 8 element))
+         '(2 2 2 2 8 2 2)))
+
+(assert (all?
+         even?
+         '(2 2 2 2 8 2 2)))
+
+(assert (equal? (zip '(0 0 0)
+                     '(3 1 2)
+                     '(0 5 4 2))
+                '((0 3 0) (0 1 5) (0 2 4))))
+
 
 (display "atheneum. all tests passed.") (newline)

@@ -1,3 +1,7 @@
+;; identity
+(define (identity arg) arg) 
+
+
 ;; macro support
 
 (define (create-lambda sexp)
@@ -103,11 +107,17 @@
 
 
 ;; all?
-
+(define (all? f lst)
+  (cond ((null? lst) #t)
+        ((not (f (car lst))) #f)
+        (else (all? f (cdr lst)))))
 
 
 ;; any?
-
+(define (any? f lst)
+  (cond ((null? lst) #f)
+        ((f (car lst)) #t)
+        (else (any? f (cdr lst)))))
 
 
 ;; flatten
@@ -159,9 +169,12 @@
                       (enumerate (cdr lst) (+ 1 index)))))))
 
 
-
 ;; zip
-
+(define (zip . lsts)
+  (cond ((null? lsts) '())
+        ((any? identity (map null? lsts)) '())
+        (else (cons (map car lsts)
+                    (apply zip (map cdr lsts)))))) 
 
 
 ;; zip-with
