@@ -72,6 +72,12 @@
     ((_ sexp more ...) (not (eq? sexp more ...)))))
 
 
+;; not-eqv?
+(define-syntax not-eqv?
+  (syntax-rules ()
+    ((_ sexp more ...) (not (eqv? sexp more ...)))))
+
+
 ;; true?
 (define-syntax true?
   (syntax-rules ()
