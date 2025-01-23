@@ -50,5 +50,13 @@
                      '(0 5 4 2))
                 '((0 3 0) (0 1 5) (0 2 4))))
 
+(assert (equal? (drop 2 '(3 1 2 0 5 4))
+                '(2 0 5 4)))
+
+(assert (equal? (drop 618 '(3 1 2 0 5 4))
+                '()))
+
+(let ((matrix '((1 2 3) (4 5 6) (7 8 9))))
+  (assert (equal? matrix (transpose (transpose matrix)))))
 
 (display "atheneum. all tests passed.") (newline)

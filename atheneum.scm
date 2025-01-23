@@ -157,7 +157,10 @@
 
 
 ;; drop
-
+(define (drop n lst)
+  (cond ((null? lst) '())
+        ((= 0 n) lst)
+        (else (drop (- n 1) (cdr lst)))))
 
 
 ;; enumerate
@@ -194,3 +197,8 @@
 
 
 ;; when-false
+
+
+;; transpose
+(define (transpose nss)
+  (apply map list nss))
